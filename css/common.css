@@ -1,0 +1,349 @@
+@charset "utf-8";
+
+/* 웹폰트 가져오기 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+@import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+/* 초기화 reset */
+*{margin: 0; padding: 0;}
+body{font-family: 'Pretendard'; font-weight: 400;}
+ul,li{list-style: none;}
+a{text-decoration: none; color: inherit;}
+img{vertical-align: top;}
+button{background: transparent; border: none; cursor: pointer;}
+
+/* --------------------------------------------
+공통부분
+----------------------------------------------*/
+.sec h2{ 
+    font-family:'GmarketSans';
+    text-align: center; font-size: 35px; margin-bottom: 2px;
+    color:#4001c2;
+}
+
+.sec p{ 
+    text-align: center; font-size: 20px; margin-bottom: 30px;
+    color:#4b3aa1;
+}
+
+/* --------------------------------------------
+헤더 영역
+----------------------------------------------*/
+header{
+    background: white;
+    /* 포지션을 적용하면 오토너비가 되니까
+    너비 100%를 다시 입력해야 한다. */
+
+    /* 헤더 고정하기 */
+    position:fixed; left:0; top:0;
+    width: 100%;
+    height:100px;
+    z-index:9999;
+    transition:all 0.6s;
+}
+
+/* 헤더에 마우스 올리면 높이를 늘려준다. */
+header.on{height:520px;}
+header.on nav > ul > li > ul.depth2{display: block;}
+
+header .header_wrap{ 
+    box-sizing: border-box;
+    /* 화면의 해상도가 1620보다 작아질 경우에 width:100% */
+    max-width: 1620px; width: 100%;     
+    margin: 0 auto; height: 100px; 
+    position: relative;        
+    display: flex;
+    justify-content: space-between; 
+}
+header h1{}
+header nav{}
+header nav > ul{display: flex; text-align: center; font-size: 20px; }
+header nav > ul > li{width: 190px;}
+header nav > ul > li > a.depth1{ display: block; height: 100px; line-height: 100px; font-weight: 500;}
+header nav > ul > li > a.depth1.current{color: #2eb7be;}
+
+header nav > ul > li > ul.depth2{font-size: 18px; display: none;}
+header nav > ul > li > ul.depth2 > li{}
+header nav > ul > li > ul.depth2 > li a{
+    display: block; line-height: 1.2; padding:20px 40px; color:#343434; word-break:keep-all;}
+    /*단어별 줄바꿈 : word-break:keep-all; */
+header nav > ul > li > ul.depth2 > li a:hover{color: #2eb7be;}
+header .sns{ display: flex; align-items: center;}
+header .sns li{margin-left: 20px;}
+header .sns li img{width: 36px;}
+
+/* --------------------------------------------
+메인 비주얼
+----------------------------------------------*/
+/* 비주얼 */
+/* #wrapper{width:1620px; margin:0 auto;} */
+
+#main_visual{
+    /*height:1070px; 
+     배경 이미지 넣기
+    background:url(../images/main/bdf_main_visual_1.png) no-repeat center top; */
+    /*색상으로 빈영역 채우기
+     background:#0a121b url(../images/main/bdf_main_visual_1.png) no-repeat center top; */
+}
+
+#main_visual > img{width:100%;}
+#main_visual .main_swiper{position: relative;}
+#main_visual .main_swiper .v_txt{position: absolute; left: 50%; top:50%; transform:translate(-50%,-25%);}
+
+/* --------------------------------------------
+카테고리 영역
+----------------------------------------------*/
+#category{
+    height:430px;
+    background:url(../images/main/category_bg.png) no-repeat center top / cover;
+    position: relative;
+
+    /* 영역 중앙에 배치 방법1*/
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+#category ul{
+    /* 영역 중앙에 배치 방법1 
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);*/
+
+    width:1240px; height:265px; 
+    display: flex;
+    justify-content: space-between;    
+}
+#category ul li{
+    width:290px; height: 100%;
+
+    /* 그라데이션 테두리 효과 - 이중처리*/
+    /* 보더정도 두께 지정 */ 
+    padding:10px; 
+    border-radius: 25px; 
+    box-sizing: border-box; 
+
+    /* 박스 그라데이션 효과 */
+    background-image:linear-gradient(142deg,#5d60e2 0%,#16c2e9 45%,#4469fd 100%);
+}
+#category ul li a{
+    display: block; height: 100%; 
+    padding:63px 0 0 47px;
+    border:10px solid black; box-sizing: border-box;
+    border-radius:25px;
+
+    background: #07102a;
+
+    position: relative;
+}
+#category ul li a img{}
+#category ul li a p{
+    font-size: 25px; font-weight: 500; color:#fff;
+    margin-top: 50px;
+}
+
+#category ul li:nth-child(3) a p{margin-top: 30px;}
+#category ul li a .ct_arrow_ico{
+    position: absolute; right:46px; bottom:44px; opacity:0;
+    transition:all 0.3s ease-in;
+}
+#category ul li:hover a .ct_arrow_ico{bottom:56px; opacity:1;}
+
+/* --------------------------------------------
+비디오 영역
+----------------------------------------------*/
+#bdf_video{
+    padding: 125px 0 62px;
+    background:url(../images/main/youtube_bg.png) no-repeat center bottom;
+    background-size:cover;
+}
+
+#bdf_video .youtube_wrap{
+    width:920px;    /* iframe크기 */     
+    margin: 0 auto;
+    border-radius: 25px; 
+    box-sizing: border-box; 
+
+    /* 박스 그라데이션 효과 */
+    padding:5px;
+    background-image:linear-gradient(142deg,#5d60e2 0%,#16c2e9 45%,#4469fd 100%);
+}
+
+#bdf_video .youtube{    
+    height:517px;
+    margin: 0 auto;    
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;       
+
+    /* padding-top: 517px; */
+}
+/* 
+#bdf_video .youtube_wrap iframe{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+} */
+
+/* --------------------------------------------
+저지 영역
+----------------------------------------------*/
+#judge_wrap{padding:125px 15px 62px;} 
+#judge_wrap .inner{width: 1100px; margin: 0 auto;}
+#judge_wrap .judge_swiper{text-align: center;}
+#judge_wrap .judge_swiper a{display: block;}
+#judge_wrap .judge_swiper img{width:100%;}
+
+/* --------------------------------------------
+공지사항, 보도자료영역
+----------------------------------------------*/
+/* 공통사항 */
+#board .board_wrap .col{
+    width:604px;     
+    padding:20px; 
+    box-sizing: border-box;
+    position: relative;
+
+    /* after보다 위에 올라오게 조정함 */
+    z-index: 1;
+}
+
+/* after는 h3, ul 다음에 만들어짐 */
+#board .board_wrap .col::after{
+    content:"";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width:100%;     /* 컨텐츠 크기 입력 */
+    height:100%;    
+    
+    /* 그라디언트 처리 */
+    border:2px solid transparent;
+    background-image:
+    linear-gradient(#2a0707, #07102a), 
+    linear-gradient(142deg, #5d60e2 0%, #09adec 45%, #4669fd 100%); 
+
+    background-clip:content-box, border-box; /* 컨텐츠영역적용, 보더영역에 적용; */
+    background-origin:border-box; /* 배경이미지가 보더부터 시작 */
+
+    border-radius: 25px;
+    opacity:0.7;   
+
+     /* col보다 아래에 올라오게 조정함 */
+    z-index: -1;
+}
+.col h3{
+    font-size: 24px; font-weight: 600; padding:40px 0 30px 35px; 
+    background:url(../images/main/borad_title_ico.png) no-repeat 0 48px;
+    border-bottom:1px solid rgba(255,255,255,0.25);
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* 더보기 */
+.col h3 .more{
+    position:absolute;
+    right: 0;
+    top:50%;
+    transform:translateY(-50%);
+
+    font-size: 18px;
+    color: #46b5ed;
+    padding-right:23px;
+    background:url(../images/main/parti_add_ico.png) no-repeat right center;
+}
+
+.col ul{margin-top: 30px;}
+.col ul li{display: flex; justify-content: space-between;
+    margin-bottom: 16px; padding-left:20px;
+    position: relative;  
+}
+.col ul li::before{
+    content:"";
+    position: absolute;
+    left: 0;
+    top:50%;
+    transform:translateY(-50%);
+    width:4px;
+    height:4px;
+    border-radius: 50%;
+    background:#fff;
+}
+.col ul li a{width:calc(100% - 150px); 
+    /* 말줄일표 표시 */
+    white-space:nowrap;text-overflow:ellipsis;overflow:hidden;
+    border-bottom: 1px solid #ffffff00; 
+}
+
+/* color값이 8자리일 때 뒤 2자리는 opacity값임 */
+.col ul li a:hover{border-bottom: 1px solid #fff;}
+.col ul li .date{width:95px; text-align: right; }
+
+/* 공지사항 */
+#board{
+    background:url(../images/main/board_bg.png) no-repeat center top / cover;
+    padding:64px 0 90px 0;
+    color:#fff;
+}
+#board .board_wrap{
+    display: flex; justify-content: space-between;
+    width:1240px; margin: 0 auto;
+}
+
+/* 푸터 */
+#footer{background: #252528;}
+#footer .inner{width: 1240px; margin: 0 auto; color:#fff;}
+#footer .top{ border-bottom:1px solid #3a3a3a; text-align: center;}
+#footer .top .inner{display: flex;}
+#footer .top dl{display: flex; align-items: center; width:50%; height:82px; }
+#footer .top dl dt{margin-right: 20px;}
+
+#footer .bottom{}
+#footer .bottom .inner{text-align: center; padding:20px 0;}
+
+#footer .bottom .ft_menu{display:flex; justify-content: center; gap:20px;}
+#footer .bottom .ft_menu{}
+#footer .bottom .ft_menu li{padding-right:16px; position: relative;}
+#footer .bottom .ft_menu li:not(:last-child)::after{
+    content:"";
+    position: absolute;
+    right:0px;
+    top:0;
+    width: 1px;
+    height: 17px;
+    background: #fff;
+}
+/* 정렬방법 1. flex
+#footer .bottom .ft_info{display:flex; justify-content: center; gap:15px; font-style:normal;} */
+
+/* 정렬방법 2. position(다음 컨텐츠위에 겹쳐지게 되어 적절치 않음) */
+/* 정렬방법 3. 한줄로 만들기, 전체 가운데 정렬 dib
+#footer .bottom .ft_info{text-align: center; font-style:normal;}
+#footer .bottom .ft_info p{display: inline-block;
+    padding-right:16px; position: relative;} */
+
+
+/* 정렬방법 4. (추천)
+#footer .bottom .inner{text-align: center;}
+#footer .bottom .ft_info{display: inline-block; }
+#footer .bottom .ft_info p{float:left;} */
+
+#footer .bottom .ft_info{display: inline-block;}
+#footer .bottom .ft_info p{float:left; position: relative; font-style:normal; margin:10px; padding-right:16px; }
+
+#footer .bottom .ft_info p::after{
+    content:"";
+    position: absolute;
+    right:0px;
+    top:0;
+    width: 1px;
+    height: 17px;
+    background: #fff;
+}
+#footer .bottom .ft_info p:last-child::after{display: none;}
+
+/* copyright */
+#footer .bottom .copyright{text-align: center; margin-top: 20px;}
